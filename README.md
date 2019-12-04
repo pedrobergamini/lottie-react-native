@@ -228,6 +228,43 @@ export default class BasicExample extends React.Component {
 }
 ```
 
+useLottie can be used to return multiple LottieView Components:
+
+```jsx
+import React from 'react';
+import { View } from 'react-native';
+import useLottie from 'lottie-react-native/useLottie';
+
+export default function HookExample() {
+  const someAnimation = {
+    source: require('../path/to/animation.json'),
+    styles: {
+      width: 250,
+      height: 250,
+    },
+    autoPlay: true,
+  };
+
+  const anotherAnimation = {
+    source: require('../path/to/animation.json'),
+    styles: {
+      backgroundColor: 'red',
+    },
+    autoPlay: true,
+  };
+
+  const [SomeAnimation, AnotherAnimation] = useLottie(someAnimation, anotherAnimation);
+
+  return (
+    <View>
+      <SomeAnimation />
+      <AnotherAnimation />
+    </View>  
+  );
+
+}
+```
+
 ## API
 
 You can find the full list of props and methods available in our [API document](https://github.com/airbnb/lottie-react-native/blob/master/docs/api.md). These are the most common ones:
